@@ -61,12 +61,13 @@ public class BlogService {
         imageList = blog.getImageList();
         for(Image image : imageList)
         {
-            imageRepository.delete(image);
-            //imageRepository.deleteById(image.getId());
+            //imageRepository.delete(image);
+            imageRepository.deleteById(image.getId());
         }
 
         // To delete blog from corresponding user
-        User user=blog.getUser();
+        User user=new User();
+        user=blog.getUser();
         List<Blog> blogList = new ArrayList<>();
         blogList = user.getBlogList();
         blogList.remove(blog);

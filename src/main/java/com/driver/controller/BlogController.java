@@ -18,7 +18,7 @@ public class BlogController
     BlogService blogService;
 
     @PostMapping
-    public ResponseEntity createBlog(@RequestParam Integer userId ,
+    public ResponseEntity<Void> createBlog(@RequestParam Integer userId ,
                                      @RequestParam String title,
                                      @RequestParam String content)
     {
