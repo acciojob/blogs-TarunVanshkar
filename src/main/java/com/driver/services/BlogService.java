@@ -54,27 +54,28 @@ public class BlogService {
     {
         //delete blog and corresponding images
         // First of fetch that blog
-        Blog blog = blogRepository1.findById(blogId).get();
-
-        // To delete corresponding image
-        List<Image> imageList = new ArrayList<>();
-        imageList = blog.getImageList();
-        for(Image image : imageList)
-        {
-            //imageRepository.delete(image);
-            imageRepository.deleteById(image.getId());
-        }
-
-        // To delete blog from corresponding user
-        User user=new User();
-        user=blog.getUser();
-        List<Blog> blogList = new ArrayList<>();
-        blogList = user.getBlogList();
-        blogList.remove(blog);
-        user.setBlogList(blogList); // Update user list
-        userRepository1.save(user);  // Hence update it in database
-
-        // Now delete from blogRepository
-        blogRepository1.delete(blog);
+//        Blog blog = blogRepository1.findById(blogId).get();
+//
+//        // To delete corresponding image
+//        List<Image> imageList = new ArrayList<>();
+//        imageList = blog.getImageList();
+//        for(Image image : imageList)
+//        {
+//            //imageRepository.delete(image);
+//            imageRepository.deleteById(image.getId());
+//        }
+//
+//        // To delete blog from corresponding user
+//        User user=new User();
+//        user=blog.getUser();
+//        List<Blog> blogList = new ArrayList<>();
+//        blogList = user.getBlogList();
+//        blogList.remove(blog);
+//        user.setBlogList(blogList); // Update user list
+//        userRepository1.save(user);  // Hence update it in database
+//
+//        // Now delete from blogRepository
+//        blogRepository1.delete(blog);
+        blogRepository1.deleteById(blogId);
     }
 }
