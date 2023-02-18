@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -26,9 +27,11 @@ public class BlogService {
     public Blog createAndReturnBlog(Integer userId, String title, String content)
     {
         //create a blog at the current time
+        Date currDate = new Date();
         Blog blog = new Blog();
         blog.setTitle(title);
         blog.setContent(content);
+        blog.setPubDate(currDate);
 
         // To setUser of this blog
         User user = userRepository1.findById(userId).get();
@@ -41,7 +44,7 @@ public class BlogService {
         // updating the blog list in user
         user.setBlogList(blogsListByUser);
 
-        blogRepository1.save(blog);
+        //blogRepository1.save(blog);    // Cascading
 
         // Since I have updated the blogList parameter of user model
         // Hence update it in database
