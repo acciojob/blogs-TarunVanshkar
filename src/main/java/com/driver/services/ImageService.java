@@ -31,6 +31,8 @@ public class ImageService
         imageList.add(image);
         blog.setImageList(imageList);
 
+        image.setBlog(blog);
+
         // To save in repository
         blogRepository2.save(blog);
         imageRepository2.save(image);
