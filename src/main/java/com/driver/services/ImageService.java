@@ -35,7 +35,7 @@ public class ImageService
 
         // To save in repository
         blogRepository2.save(blog);
-        imageRepository2.save(image);
+        //imageRepository2.save(image);    // cascading
         return image;
     }
 
