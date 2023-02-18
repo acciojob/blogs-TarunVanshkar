@@ -27,9 +27,9 @@ public class ImageService
         // To add images in blogList
         Blog blog = blogRepository2.findById(blogId).get();  // Now we have that blog to use
         List<Image> imageList = new ArrayList<>();
-        imageList = blog.getImagesInBlogsList();
+        imageList = blog.getImageList();
         imageList.add(image);
-        blog.setImagesInBlogsList(imageList);
+        blog.setImageList(imageList);
 
         // To save in repository
         blogRepository2.save(blog);

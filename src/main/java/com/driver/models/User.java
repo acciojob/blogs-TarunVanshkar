@@ -11,24 +11,24 @@ public class User
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String userName;
+    private String username;
     private String password;
-    private String firstName = "test";     //firstName and lastName can be set as “test” by default. -->Given In Question
-    private String lastName = "test";
+    private String firstName;
+    private String lastName;
 
 
     // User(Parent) : Blog(Child) mapping ---> OneToMany
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    List<Blog> blogsWrittenByUserList;
+    List<Blog> blogList;
 
-    public List<Blog> getBlogsWrittenByUserList()
+    public List<Blog> getBlogList()
     {
-        return blogsWrittenByUserList;
+        return blogList;
     }
 
-    public void setBlogsWrittenByUserList(List<Blog> blogsWrittenByUserList)
+    public void setBlogList(List<Blog> blogList)
     {
-        this.blogsWrittenByUserList = blogsWrittenByUserList;
+        this.blogList = blogList;
     }
 
     public User()
@@ -45,14 +45,14 @@ public class User
         this.id = id;
     }
 
-    public String getUserName()
+    public String getUsername()
     {
-        return userName;
+        return username;
     }
 
-    public void setUserName(String userName)
+    public void setUsername(String username)
     {
-        this.userName=userName;
+        this.username = username;
     }
 
     public String getPassword()

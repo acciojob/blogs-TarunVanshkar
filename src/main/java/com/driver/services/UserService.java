@@ -5,9 +5,6 @@ import com.driver.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
 public class UserService {
     @Autowired
@@ -17,8 +14,10 @@ public class UserService {
     {
         //Create new User entity
         User user = new User();
-        user.setUserName(username);
+        user.setUsername(username);
         user.setPassword(password);
+        user.setFirstName("test");
+        user.setLastName("test");
 
         // After setting all the attributes, we will save the user into database with the help of JPA
         userRepository3.save(user);

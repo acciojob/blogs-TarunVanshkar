@@ -18,7 +18,7 @@ public class Blog
     private String content;
 
     @CreationTimestamp
-    private Date dateOfPublished;
+    private Date pubDate;
 
     // User(Parent) : Blog(Child) mapping ---> OneToMany
     @ManyToOne
@@ -38,16 +38,16 @@ public class Blog
 
     // Blog(Parent) : Image(Child) mapping ---> OneToMany
     @OneToMany(mappedBy = "blog", cascade = CascadeType.ALL)
-    List<Image> ImagesInBlogsList;
+    List<Image> imageList;
 
-    public List<Image> getImagesInBlogsList()
+    public List<Image> getImageList()
     {
-        return ImagesInBlogsList;
+        return imageList;
     }
 
-    public void setImagesInBlogsList(List<Image> imagesInBlogsList)
+    public void setImageList(List<Image> imageList)
     {
-        ImagesInBlogsList = imagesInBlogsList;
+        this.imageList = imageList;
     }
 
     public Blog()
@@ -84,13 +84,13 @@ public class Blog
         this.content = content;
     }
 
-    public Date getDateOfPublished()
+    public Date getPubDate()
     {
-        return dateOfPublished;
+        return pubDate;
     }
 
-    public void setDateOfPublished(Date dateOfPublished)
+    public void setPubDate(Date pubDate)
     {
-        this.dateOfPublished = dateOfPublished;
+        this.pubDate = pubDate;
     }
 }
